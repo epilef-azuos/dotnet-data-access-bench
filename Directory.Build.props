@@ -1,7 +1,46 @@
 <Project>
-  <!-- See https://aka.ms/dotnet/msbuild/customize for more details on customizing your build -->
-  <PropertyGroup>
+  <!--
+    Configuração compartilhada por TODOS os projetos da solução.
+    O MSBuild procura este arquivo subindo a árvore de pastas a partir de cada .csproj,
+    então nenhum projeto precisa repetir estas propriedades.
+  -->
 
+  <PropertyGroup Label="Linguagem e plataforma">
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
 
+  <PropertyGroup Label="Qualidade de código">
+    <!-- Warning vira erro: o build quebra cedo em vez de acumular dívida. -->
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <!-- Analisadores do SDK na versão mais recente, no modo recomendado. -->
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <!-- Faz as regras de estilo (IDExxxx) do .editorconfig valerem também no build e no CI. -->
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <!--
+      O compilador só detecta "using desnecessário" (IDE0005) no build quando gera o arquivo
+      de documentação XML. Sem isto, o SDK emite o aviso EnableGenerateDocumentationFile, que
+      vira erro por causa do TreatWarningsAsErrors.
+    -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!-- Comentário XML em todo membro público ainda não é exigido; CS1591 fica desligado até a Fase 4. -->
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Build reprodutível">
+    <Deterministic>true</Deterministic>
+    <!-- No GitHub Actions, normaliza caminhos de arquivo dentro dos binários. -->
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Metadados">
+    <Authors>Felipe Assis Souza</Authors>
+    <Company>epilef-azuos</Company>
+    <Product>dotnet-data-access-bench</Product>
+    <RepositoryUrl>https://github.com/epilef-azuos/dotnet-data-access-bench</RepositoryUrl>
+    <!-- Nenhum projeto é publicado no NuGet. -->
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 </Project>
