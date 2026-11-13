@@ -4,9 +4,11 @@
   </Folder>
   <Folder Name="/Itens de Solução/">
     <File Path=".editorconfig" />
+    <File Path="CHANGELOG.md" />
     <File Path="Directory.Build.props" />
     <File Path="Directory.Packages.props" />
     <File Path="global.json" />
+    <File Path="README.md" />
   </Folder>
   <Folder Name="/src/">
     <Project Path="Bench.Data.Contracts/Bench.Data.Contracts.csproj" Id="1c3d4503-20a7-4e8d-9b5c-77a919ca1a50" />
