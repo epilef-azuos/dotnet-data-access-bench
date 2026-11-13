@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Testes de integração e de equivalência EF Core × Dapper com Testcontainers (SQL Server).
+    Os pacotes (xUnit, Testcontainers.MsSql, biblioteca de asserções) entram na Fase 2.
+  -->
+  <PropertyGroup>
+    <RootNamespace>Bench.Tests.Integration</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bench.Data.Contracts\Bench.Data.Contracts.csproj" />
+    <ProjectReference Include="..\Bench.Data.Dapper\Bench.Data.Dapper.csproj" />
+    <ProjectReference Include="..\Bench.Data.Ef\Bench.Data.Ef.csproj" />
+    <ProjectReference Include="..\Bench.Seed\Bench.Seed.csproj" />
+  </ItemGroup>
+
+</Project>

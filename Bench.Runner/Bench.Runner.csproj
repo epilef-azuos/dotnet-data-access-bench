@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Executor do BenchmarkDotNet.
+    Sempre rodar em Release e sem debugger (no VS: Ctrl+F5; na CLI: dotnet run -c Release).
+    Atenção: XML não aceita dois hifens seguidos dentro de comentários.
+  -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Bench.Runner</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bench.Data.Contracts\Bench.Data.Contracts.csproj" />
+    <ProjectReference Include="..\Bench.Data.Dapper\Bench.Data.Dapper.csproj" />
+    <ProjectReference Include="..\Bench.Data.Ef\Bench.Data.Ef.csproj" />
+  </ItemGroup>
+
+</Project>

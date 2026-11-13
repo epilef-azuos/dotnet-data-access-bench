@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Repositório Dapper com SQL explícito. Não referencia Bench.Data.Ef: as implementações são independentes. -->
+  <PropertyGroup>
+    <RootNamespace>Bench.Data.Dapper</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bench.Data.Contracts\Bench.Data.Contracts.csproj" />
+    <ProjectReference Include="..\Bench.Domain\Bench.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

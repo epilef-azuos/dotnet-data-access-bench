@@ -1,0 +1,43 @@
+name: ci
+
+# Fase 0: restore + build em Release.
+# Fase 5: adiciona dotnet format, testes unitários e de integração (Testcontainers) e cobertura.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET (versão do global.json)
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Restore
+        run: dotnet restore dotnet-data-access-bench.slnx
+
+      - name: Build (Release)
+        run: dotnet build dotnet-data-access-bench.slnx --configuration Release --no-restore

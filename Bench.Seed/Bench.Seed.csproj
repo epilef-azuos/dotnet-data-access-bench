@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Console que aplica o schema (migrations do EF Core) e popula o banco com Bogus (seed fixa). -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Bench.Seed</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bench.Data.Ef\Bench.Data.Ef.csproj" />
+    <ProjectReference Include="..\Bench.Domain\Bench.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

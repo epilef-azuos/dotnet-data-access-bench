@@ -1,0 +1,8 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Entidades (Cliente, Veiculo, Reserva) e DTOs. Sem dependência de EF Core nem de Dapper. -->
+  <PropertyGroup>
+    <RootNamespace>Bench.Domain</RootNamespace>
+  </PropertyGroup>
+
+</Project>

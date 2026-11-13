@@ -1,0 +1,74 @@
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{json,yml,yaml,props,targets,csproj,slnx,xml}]
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.cs]
+# ---------- Organização ----------
+dotnet_sort_system_directives_first = true
+dotnet_separate_import_directive_groups = false
+
+# Namespace com escopo de arquivo (C# 10+): menos indentação
+csharp_style_namespace_declarations = file_scoped:warning
+
+# ---------- var ----------
+csharp_style_var_for_built_in_types = true:suggestion
+csharp_style_var_when_type_is_apparent = true:suggestion
+csharp_style_var_elsewhere = true:suggestion
+
+# ---------- Chaves e expressões ----------
+csharp_prefer_braces = true:warning
+csharp_style_expression_bodied_methods = when_on_single_line:suggestion
+csharp_style_expression_bodied_properties = true:suggestion
+csharp_style_prefer_primary_constructors = true:suggestion
+csharp_prefer_simple_using_statement = true:suggestion
+csharp_style_prefer_collection_expression = when_types_loosely_match:suggestion
+
+# ---------- Qualidade ----------
+dotnet_style_readonly_field = true:warning
+dotnet_style_prefer_auto_properties = true:suggestion
+csharp_style_unused_value_discard_assignment_preference = discard_variable:suggestion
+dotnet_diagnostic.IDE0005.severity = warning   # using desnecessário
+
+# ---------- Nomenclatura ----------
+# Interfaces começam com I
+dotnet_naming_rule.interfaces_com_i.symbols = interfaces
+dotnet_naming_rule.interfaces_com_i.style = prefixo_i
+dotnet_naming_rule.interfaces_com_i.severity = warning
+dotnet_naming_symbols.interfaces.applicable_kinds = interface
+dotnet_naming_style.prefixo_i.required_prefix = I
+dotnet_naming_style.prefixo_i.capitalization = pascal_case
+
+# Campos privados: _camelCase
+dotnet_naming_rule.campos_privados.symbols = campos_privados
+dotnet_naming_rule.campos_privados.style = underscore_camel
+dotnet_naming_rule.campos_privados.severity = warning
+dotnet_naming_symbols.campos_privados.applicable_kinds = field
+dotnet_naming_symbols.campos_privados.applicable_accessibilities = private
+dotnet_naming_style.underscore_camel.required_prefix = _
+dotnet_naming_style.underscore_camel.capitalization = camel_case
+
+# Métodos assíncronos terminam com Async (exceto nos testes e benchmarks; ver abaixo)
+dotnet_naming_rule.async_com_sufixo.symbols = metodos_async
+dotnet_naming_rule.async_com_sufixo.style = sufixo_async
+dotnet_naming_rule.async_com_sufixo.severity = suggestion
+dotnet_naming_symbols.metodos_async.applicable_kinds = method
+dotnet_naming_symbols.metodos_async.required_modifiers = async
+dotnet_naming_style.sufixo_async.required_suffix = Async
+dotnet_naming_style.sufixo_async.capitalization = pascal_case
+
+# ---------- Testes e benchmarks ----------
+# Nomes descritivos em português com underscore (ex.: Deve_retornar_mesmo_cliente_quando_id_existe)
+[{tests,bench}/**.cs]
+dotnet_diagnostic.CA1707.severity = none   # identificadores com underscore
+dotnet_naming_rule.async_com_sufixo.severity = none
