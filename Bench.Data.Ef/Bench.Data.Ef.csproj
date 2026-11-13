@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- DbContext, configurações (IEntityTypeConfiguration), migrations e repositório EF Core. -->
+  <PropertyGroup>
+    <RootNamespace>Bench.Data.Ef</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bench.Data.Contracts\Bench.Data.Contracts.csproj" />
+    <ProjectReference Include="..\Bench.Domain\Bench.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

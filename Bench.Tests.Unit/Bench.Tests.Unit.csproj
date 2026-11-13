@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Testes unitários: seed determinística, mapeamentos e regras simples.
+    Os pacotes de teste (xUnit, Microsoft.NET.Test.Sdk, coverlet, biblioteca de asserções)
+    entram na Fase 1, junto com o primeiro teste real.
+  -->
+  <PropertyGroup>
+    <RootNamespace>Bench.Tests.Unit</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bench.Domain\Bench.Domain.csproj" />
+    <ProjectReference Include="..\Bench.Seed\Bench.Seed.csproj" />
+  </ItemGroup>
+
+</Project>

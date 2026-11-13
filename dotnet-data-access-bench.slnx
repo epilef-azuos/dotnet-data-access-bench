@@ -1,0 +1,22 @@
+<Solution>
+  <Folder Name="/bench/">
+    <Project Path="Bench.Runner/Bench.Runner.csproj" Id="b5240a9a-c3dc-4758-98d5-56cd285a538c" />
+  </Folder>
+  <Folder Name="/Itens de Solução/">
+    <File Path=".editorconfig" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="global.json" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="Bench.Data.Contracts/Bench.Data.Contracts.csproj" Id="1c3d4503-20a7-4e8d-9b5c-77a919ca1a50" />
+    <Project Path="Bench.Data.Dapper/Bench.Data.Dapper.csproj" Id="8fe86369-bd71-479e-bbd7-e0a392967afe" />
+    <Project Path="Bench.Data.Ef/Bench.Data.Ef.csproj" Id="72903bee-82fa-4d0c-b471-e981e0900a7a" />
+    <Project Path="Bench.Domain/Bench.Domain.csproj" Id="6be8379e-8c31-446c-bb74-e13c343bd430" />
+    <Project Path="Bench.Seed/Bench.Seed.csproj" Id="cda4cd3d-9394-4696-b696-e5b4c1266ab4" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="Bench.Tests.Integration/Bench.Tests.Integration.csproj" Id="e8f49274-a413-48c4-a51b-a35848054aaa" />
+    <Project Path="Bench.Tests.Unit/Bench.Tests.Unit.csproj" Id="fca07970-fd91-4136-aa39-4424d2c658b8" />
+  </Folder>
+</Solution>

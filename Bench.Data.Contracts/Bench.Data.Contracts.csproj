@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Interfaces dos repositórios: o MESMO contrato é implementado por EF Core e por Dapper. -->
+  <PropertyGroup>
+    <RootNamespace>Bench.Data.Contracts</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bench.Domain\Bench.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
